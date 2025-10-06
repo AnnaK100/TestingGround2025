@@ -16,8 +16,8 @@ Elements: Navigate To Page
     DemoQADriverPackage.Elements.Navigate To Page
 
 TextBox: Navigate To Page
-    DemoQADriverPackage.TextBox.Navigate To Page
+    DemoQADriverPackage.Elements.TextBox.Navigate To Page
 
 TextBox: Choose Parameters
     [Arguments]    @{params}
-    DemoQADriverPackage.TextBox.Choose Parameters    @{params}
+    DemoQADriverPackage.Elements.TextBox.Choose Parameters    @{params}
