@@ -1,6 +1,4 @@
 *** Settings ***
-Library          Collections
-Library          String
 Library          OperatingSystem
 Library          json
 

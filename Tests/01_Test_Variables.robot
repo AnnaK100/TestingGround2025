@@ -6,7 +6,7 @@ Library          String
 Test Tags        demo
 
 *** Variables ***
-${NAME}          Artur Ziółkowski
+${NAME}    Artur Ziółkowski
 @{FRIENDS_LIST}       Adam    Bartek    Celina
 &{FRIENDS_DICT}  Adam=Friend    Bartek=Best Friend    Celina=Close Friend
 
@@ -17,7 +17,7 @@ TC1: Print Your Name
 
 TC2: Set Your Name As Variable Then Print It
     [Tags]    name_variable
-    ${name}=    Set Variable    Artur Ziółkowski
+    ${name}    Set Variable    Artur Ziółkowski
     Log    ${name}
 
 TC3: Move Your Name To Variables Section Then Print It
@@ -26,7 +26,7 @@ TC3: Move Your Name To Variables Section Then Print It
 
 TC4: Create List Of Your Friends And Print It
     [Tags]    friends_list
-    @{friends}    Create List    Adam    Bartek    Celina
+    @{friends}    BuiltIn.Create List    Adam    Bartek    Celina
     Log    ${friends}
 
 TC5: Move Your Friends List To Variables Section Then Print It
@@ -45,11 +45,11 @@ TC7: Create Dictionary Of Your Friends And Print It
     Log    ${friends_dict}
 
 TC8: Move Your Friends Dictionary To Variables Section Then Print It
-    [Tags]    friends_dict_variable_section
+    [Tags]    friends_dict_variable_section  artur
     Log    ${FRIENDS_DICT}
 
 TC9: Print Your Friends From Dictionary One By One
-    [Tags]    friends_dict_one_by_one
+    [Tags]    friends_dict_one_by_one  monika
     FOR    ${name}    IN    @{FRIENDS_DICT.keys()}
         Log    ${name}: ${FRIENDS_DICT["${name}"]}
         Log    ${name}: ${FRIENDS_DICT}[${name}]
@@ -58,3 +58,7 @@ TC9: Print Your Friends From Dictionary One By One
     FOR    ${key}    ${value}    IN    &{FRIENDS_DICT}
         Log    ${key}: ${value}
     END
+
+
+# python -m robot -i demoANDartur -L TRACE --outputdir logs C:\workshop\TestingGround2025\Tests\01_Test_Variables.robot 
+

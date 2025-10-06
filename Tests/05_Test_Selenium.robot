@@ -1,10 +1,11 @@
+python -m robot -i Open_Browser .\Tests\
+
 *** Settings ***
 Documentation    Simple Robot Framework test setup
 Resource         ../Resources/Functionality_Keywords/Load_Users.resource
 Library          SeleniumLibrary
 
 Test Tags        demo
-
 
 *** Variables ***
 ${URL}          https://demoqa.com/
@@ -13,12 +14,12 @@ ${URL}          https://demoqa.com/
 TC1: Open Browsers
     [Tags]    Open_Browser
     SeleniumLibrary.Open Browser    ${URL}    chrome
-    ${users}    Load_Users.Read Users From JSON File
+    # ${users}    Load_Users.Read Users From JSON File
 
 TC2: Add Teardown To Close Browser
     [Tags]    Teardown
     SeleniumLibrary.Open Browser    ${URL}    chrome
-    ${users}    Load_Users.Read Users From JSON File
+    # ${users}    Load_Users.Read Users From JSON File
     [Teardown]    SeleniumLibrary.Close All Browsers
 
 TC3: Move Open Browser To Test Setup
